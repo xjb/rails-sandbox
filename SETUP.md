@@ -73,3 +73,39 @@ Gemfile
 + end
 ```
 
+
+## Setup RSpec
+
+Gemfile
+```diff
+group :development, :test do
+...
++   # rspec
++   gem 'rspec-rails'
++   gem 'factory_bot_rails'
++   gem 'faker', require: false
+end
+...
+group :test do
+...
++   # rspec
++   gem 'simplecov', require: false
+end
+```
+required on generate
+
+
+```bash
+docker-compose run --rm ap bin/rails g rspec:install
+```
+
+spec/rails_helper.rb
+```diff
+# require only the support files necessary.
+#
+- # Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require f }
++ Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require f }
+
+# Checks for pending migrations and applies them before tests are run.
+```
+
