@@ -109,3 +109,31 @@ spec/rails_helper.rb
 # Checks for pending migrations and applies them before tests are run.
 ```
 
+
+## Setup Rubocop
+
+Gemfile
+```diff
+group :development, :test do
+...
++   # rubocop
++   gem 'rubocop-performance', require: false
++   gem 'rubocop-rails', require: false
++   gem 'rubocop-rake', require: false
++   gem 'rubocop-rspec', require: false
+end
+```
+
+```bash
+docker-compose run --rm ap rubocop --init
+```
+
+.rubocop.yml
+```diff
++ require:
++   - rubocop-performance
++   - rubocop-rails
++   - rubocop-rake
++   - rubocop-rspec
+```
+
