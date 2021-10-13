@@ -6,9 +6,11 @@ services:
       - "3000:3000"
     volumes:
       - .:/workspace
+      - bundle:/usr/local/bundle
       - node_modules:/workspace/node_modules
     tty: true
     stdin_open: true
 
 volumes:
+  bundle:
   node_modules:
