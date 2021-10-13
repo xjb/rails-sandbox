@@ -47,3 +47,19 @@ docker-compose run --rm ap bundle exec rails new . --force
 ```bash
 docker-compose up
 ```
+
+
+## Setup Pry
+
+Gemfile
+```diff
+group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
++   # pry
++   gem 'pry-rails'
++   gem 'pry-byebug'
++   gem 'pry-stack_explorer'
+end
+```
+
