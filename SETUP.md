@@ -21,3 +21,29 @@ services:
 volumes:
   node_modules:
 ```
+
+2. Create Gemfile
+
+```bash
+docker-compose run --rm ap bundle init
+```
+
+3. Edit Gemfile
+
+Gemfile
+```diff
+- # gem "rails"
++ gem "rails"
+```
+
+4. Generate rails app
+
+```bash
+docker-compose run --rm ap bundle exec rails new . --force
+```
+
+5. Start rails
+
+```bash
+docker-compose up
+```
