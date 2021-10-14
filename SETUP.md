@@ -146,6 +146,10 @@ docker-compose run --rm ap rubocop --init
 docker-compose run --rm ap bin/rails g scaffold user name:string email:string
 ```
 
+```bash
+docker-compose run --rm ap bin/rails g scaffold book title:string type:string description:text book:references
+```
+
 
 ## Delete Scaffold
 
