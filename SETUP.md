@@ -139,3 +139,24 @@ docker-compose run --rm ap rubocop --init
 +   - rubocop-rspec
 ```
 
+
+## Generate Scaffold
+
+```bash
+docker-compose run --rm ap bin/rails g scaffold user name:string email:string
+```
+
+
+## Delete Scaffold
+
+```bash
+docker-compose run --rm --entrypoint="" ap bin/rails d scaffold user
+```
+
+
+## Reset DB
+
+```bash
+docker-compose run --rm --entrypoint="" ap bin/rails db:reset
+```
+
