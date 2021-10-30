@@ -139,6 +139,16 @@ docker-compose run --rm ap rubocop --init
 +   - rubocop-rspec
 ```
 
+## Setup Brakeman
+
+Gemfile
+```diff
+group :development, :test do
+...
++   gem 'brakeman', require: false
+end
+```
+
 
 ## Generate Scaffold
 
