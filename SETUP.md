@@ -148,6 +148,25 @@ docker-compose run --rm ap rubocop --auto-correct-all
 ```
 
 
+## Setup erb-lint
+
+Gemfile
+```diff
+group :development, :test do
+...
++   gem 'erb_lint', require: false
+end
+```
+
+```bash
+docker-compose run --rm ap erblint --lint-all
+```
+
+```bash
+docker-compose run --rm ap erblint --lint-all --autocorrect
+```
+
+
 ## Setup Brakeman
 
 Gemfile

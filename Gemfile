@@ -48,6 +48,8 @@ group :development, :test do
   gem 'rubocop-rails', require: false
   gem 'rubocop-rake', require: false
   gem 'rubocop-rspec', require: false
+  # erb-lint
+  gem 'erb_lint', require: false
   # security checks
   gem 'bundler-audit', require: false
   gem 'brakeman', require: false
