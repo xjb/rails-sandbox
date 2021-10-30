@@ -150,6 +150,17 @@ end
 ```
 
 
+## Setup bundler-audit
+
+Gemfile
+```diff
+group :development, :test do
+...
++   gem 'bundler-audit', require: false
+end
+```
+
+
 ## Generate Scaffold
 
 ```bash
