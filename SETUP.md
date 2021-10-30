@@ -139,6 +139,15 @@ docker-compose run --rm ap rubocop --init
 +   - rubocop-rspec
 ```
 
+```bash
+docker-compose run --rm ap rubocop --auto-gen-config
+```
+
+```bash
+docker-compose run --rm ap rubocop --auto-correct-all
+```
+
+
 ## Setup Brakeman
 
 Gemfile
