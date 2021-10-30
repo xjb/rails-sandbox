@@ -1,3 +1,5 @@
+inherit_from: .rubocop_todo.yml
+
 # The behavior of RuboCop can be controlled via the .rubocop.yml
 # configuration file. It makes it possible to enable/disable
 # certain cops (checks) and to alter their behavior if they accept
@@ -13,3 +15,78 @@ require:
   - rubocop-rails
   - rubocop-rake
   - rubocop-rspec
+
+AllCops:
+  NewCops: enable
+  # StyleGuideBaseURL: https://rubystyle.guide
+  # TargetRubyVersion: 3.0
+
+Bundler/OrderedGems:
+  Exclude:
+    - 'Gemfile'
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, IndentationWidth.
+# SupportedStyles: consistent, consistent_relative_to_receiver, special_for_inner_method_call, special_for_inner_method_call_in_parentheses
+Layout/FirstArgumentIndentation:
+  EnforcedStyle: consistent
+
+# Cop supports --auto-correct.
+# Configuration parameters: IndentationWidth.
+# SupportedStyles: special_inside_parentheses, consistent, align_brackets
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+
+# Cop supports --auto-correct.
+# Configuration parameters: Width, IgnoredPatterns.
+Layout/IndentationWidth:
+  Width: 2
+
+# Configuration parameters: CountComments, CountAsOne, ExcludedMethods, IgnoredMethods.
+# IgnoredMethods: refine
+Metrics/BlockLength:
+  Max: 120
+
+# Configuration parameters: AssignmentOnly.
+# RSpec/InstanceVariable:
+#   AssignmentOnly: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+  # Max: 2
+
+# Cop supports --auto-correct.
+Style/BlockComments:
+  Exclude:
+    - 'spec/spec_helper.rb'
+
+# Configuration parameters: AllowedConstants.
+Style/Documentation:
+  Enabled: false
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle.
+# SupportedStyles: always, always_true, never
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# Cop supports --auto-correct.
+# Style/GlobalStdStream:
+
+# Cop supports --auto-correct.
+# Configuration parameters: SafeForConstants.
+Style/RedundantFetchBlock:
+  Exclude:
+    - 'config/puma.rb'
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, ConsistentQuotesInMultiline.
+# SupportedStyles: single_quotes, double_quotes
+# Style/StringLiterals:
+#   Enabled: false
+#   EnforcedStyle: double_quotes
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, MinSize.
+# SupportedStyles: percent, brackets
+# Style/SymbolArray:
