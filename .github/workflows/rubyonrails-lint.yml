@@ -30,3 +30,6 @@ jobs:
       - name: Run linters
         run: |
           bundle exec rubocop --parallel
+      - name: Run ERB linters
+        run: |
+          bundle exec erblint --lint-all
