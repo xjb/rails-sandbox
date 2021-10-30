@@ -49,6 +49,7 @@ group :development, :test do
   gem 'rubocop-rake', require: false
   gem 'rubocop-rspec', require: false
   # security checks
+  gem 'bundler-audit', require: false
   gem 'brakeman', require: false
 end
 
