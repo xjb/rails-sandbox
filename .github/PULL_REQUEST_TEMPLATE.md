@@ -1,5 +1,1 @@
 Closes #
-
-## Changes
-
-- 
