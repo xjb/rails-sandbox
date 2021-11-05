@@ -244,3 +244,31 @@ app/views/layouts/application.html.erb
 -     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 ```
 
+
+## Setup Bootstrap Provide
+
+config/webpack/environment.js
+```diff
+const { environment } = require('@rails/webpacker')
+
++ const webpack = require('webpack')
++ environment.plugins.prepend(
++   'Provide',
++   new webpack.ProvidePlugin({
++     bootstrap: 'bootstrap'
++   })
++ )
++
+module.exports = environment
+```
+
+app/javascript/packs/application.js
+```diff
++ import "src"
+```
+
+app/javascript/src/index.js
+```diff
++ import "./xxxxx.js"
+```
+
