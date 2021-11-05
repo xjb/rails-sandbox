@@ -11,3 +11,7 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+import "stylesheets"
+import "bootstrap"
+import "bootstrap-icons/font/bootstrap-icons.css"
