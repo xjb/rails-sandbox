@@ -1,14 +1,25 @@
-<p id="notice"><%= notice %></p>
+<div class="m-1">
+  <div class="row gx-2 my-2 border">
+    <div class="col-2 text-end">
+      <div class="p-2"><%= User.human_attribute_name(:name) %></div>
+    </div>
+    <div class="col">
+      <div class="p-2"><%= @user.name %></div>
+    </div>
+  </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+  <div class="row gx-2 my-2 border">
+    <div class="col-2 text-end">
+      <div class="p-2"><%= User.human_attribute_name(:email) %></div>
+    </div>
+    <div class="col">
+      <div class="p-2"><%= @user.email.presence %></div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<% provide :actions_west do %>
+  <%= link_to t('.edit'), edit_user_path(@user), class: 'btn btn-outline-dark' %>
+  <%= link_to t('.back'), users_path, class: 'btn btn-outline-dark' %>
+<% end %>
+<%= render partial: 'shared/actions' %>

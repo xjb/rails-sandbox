@@ -1,15 +1,11 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Users</h1>
-
 <%= will_paginate @users %>
 
-<table>
+<table class="table table-striped table-hover">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th colspan="3"></th>
+      <th><%= User.human_attribute_name(:name) %></th>
+      <th><%= User.human_attribute_name(:email) %></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -18,9 +14,13 @@
       <tr>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="col-3 text-center">
+          <div class="btn-group" role="group">
+            <%= link_to t('.show'), user, class: 'btn btn-outline-dark btn-sm' %>
+            <%= link_to t('.edit'), edit_user_path(user), class: 'btn btn-outline-dark btn-sm' %>
+            <%= link_to t('.destroy'), user, method: :delete, data: { confirm: t('.confirm') }, class: 'btn btn-outline-dark btn-sm' %>
+          </div>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -28,6 +28,7 @@
 
 <%= will_paginate @users %>
 
-<br>
-
-<%= link_to 'New User', new_user_path %>
+<% provide :actions_west do %>
+  <%= link_to t('.new'), new_user_path, class: 'btn btn-outline-dark' %>
+<% end %>
+<%= render partial: 'shared/actions' %>
