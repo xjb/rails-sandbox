@@ -1,4 +1,4 @@
-<h1>Editing User</h1>
+<h1><%= t('.title', id: @user.id) %></h1>
 
 <% provide :actions_west do %>
   <%= link_to t('.show'), @user, class: 'btn btn-outline-dark' %>

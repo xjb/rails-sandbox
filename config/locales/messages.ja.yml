@@ -1,0 +1,28 @@
+ja:
+  # errors:
+  #   format: "%{message}"
+  #   messages:
+  #     blank: "%{attribute}を入力してください。5"
+  #   attributes:
+  #     name:
+  #       blank: "%{attribute}を入力してください。4"
+  #   template:
+  #     body: 次の項目を確認してください
+  #     header:
+  #       one: "%{model}にエラーが発生しました"
+  #       other: "%{model}に%{count}個のエラーが発生しました"
+
+  # activerecord:
+  #   errors:
+  #     messages:
+  #       record_invalid: 'バリデーションに失敗しました: %{errors}'
+  #       restrict_dependent_destroy:
+  #         has_one: "%{record}が存在しているので削除できません"
+  #         has_many: "%{record}が存在しているので削除できません"
+  #       blank: "%{attribute}を入力してください。3"
+  #     models:
+  #       user:
+  #         blank: "%{attribute}を入力してください。2"
+  #         attributes:
+  #           name:
+  #             blank: "%{attribute}を入力してください。1"

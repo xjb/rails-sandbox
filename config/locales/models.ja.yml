@@ -1,0 +1,18 @@
+ja:
+  attributes:
+    # id: ID
+    # created_at: 作成日時
+    # updated_at: 更新日時
+
+  activerecord:
+    models:
+      user:
+        # zero: User
+        # one: User
+        # other: Users
+
+    attributes:
+      user:
+        # name: 名前
+        # email: メール
+        # created_at: 登録日時
