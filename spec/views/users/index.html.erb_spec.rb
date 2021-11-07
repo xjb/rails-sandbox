@@ -2,16 +2,15 @@ require 'rails_helper'
 
 RSpec.describe 'users/index', type: :view do
   before do
-    assign(:users, [
-      User.create!(
-        name: 'Name',
-        email: 'Email'
-      ),
-      User.create!(
-        name: 'Name',
-        email: 'Email'
-      )
-    ])
+    User.create!(
+      name: 'Name',
+      email: 'Email'
+    )
+    User.create!(
+      name: 'Name',
+      email: 'Email'
+    )
+    assign(:users, User.paginate(page: params[:page]))
   end
 
   it 'renders a list of users' do
