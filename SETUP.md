@@ -210,6 +210,13 @@ docker-compose run --rm --entrypoint="" ap bin/rails d scaffold user
 ## Reset DB
 
 ```bash
-docker-compose run --rm --entrypoint="" ap bin/rails db:reset
+docker-compose run --rm --entrypoint="" ap bin/rails db:migrate:reset
+```
+
+
+## Generate DB data
+
+```bash
+docker-compose run --rm --entrypoint="" ap bin/rails db:seed
 ```
 
