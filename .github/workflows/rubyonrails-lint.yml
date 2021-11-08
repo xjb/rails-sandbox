@@ -33,3 +33,25 @@ jobs:
       - name: Run ERB linters
         run: |
           bundle exec erblint --lint-all
+
+  db-seed:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        rails-env: ['production', 'test', 'development']
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Ruby and install gems
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Run db:seed
+        env:
+          RAILS_ENV: ${{ matrix.rails-env }}
+          RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
+        run: |
+          bundle exec rails db:migrate:reset db:seed
