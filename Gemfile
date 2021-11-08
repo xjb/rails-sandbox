@@ -33,6 +33,7 @@ group :default do
   gem 'seed-fu'
   gem 'will_paginate'
   gem 'will-paginate-i18n'
+  gem 'ransack'
 end
 
 group :development, :test do
