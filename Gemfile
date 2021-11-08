@@ -57,6 +57,8 @@ group :development, :test do
   # security checks
   gem 'bundler-audit', require: false
   gem 'brakeman', require: false
+  # N+1 queries
+  gem 'bullet'
 end
 
 group :development do

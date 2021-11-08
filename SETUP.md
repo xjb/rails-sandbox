@@ -189,6 +189,21 @@ end
 ```
 
 
+## Setup Bullet
+
+Gemfile
+```diff
+group :development, :test do
+...
++   gem 'bullet'
+end
+```
+
+```bash
+docker-compose run --rm ap bin/rails g bullet:install
+```
+
+
 ## Generate Scaffold
 
 ```bash
