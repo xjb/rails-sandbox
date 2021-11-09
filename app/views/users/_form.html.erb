@@ -11,6 +11,11 @@
     <%= form.text_field :email, class: 'form-control' %>
   </div>
 
+  <div class="field mb-3">
+    <%= form.label :prefecture, class: 'form-label' %>
+    <%= form.collection_select :prefecture_id, Prefecture.all, :id, :name, { include_blank: true }, { class: 'form-select' } %>
+  </div>
+
   <% provide :actions_east do %>
     <%= form.submit class: 'btn btn-dark' %>
   <% end %>

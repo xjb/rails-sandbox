@@ -6,13 +6,18 @@ ja:
 
   activerecord:
     models:
+      prefecture: &prefecture 都道府県
       user:
         # zero: User
         # one: User
         # other: Users
 
     attributes:
+      prefecture:
+        # name: Prefecture Name
+
       user:
         # name: 名前
         # email: メール
+        prefecture: *prefecture
         # created_at: 登録日時
