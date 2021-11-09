@@ -2,10 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'users/edit', type: :view do
   let!(:user) do
-    assign(:user, User.create!(
-      name: 'MyString',
-      email: 'MyString'
-    ))
+    assign(:user, create(:user))
   end
 
   it 'renders the edit user form' do
