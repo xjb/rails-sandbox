@@ -2,11 +2,9 @@ require 'rails_helper'
 
 RSpec.describe 'users/index', type: :view do
   before do
-    User.create!(
-      name: 'Name',
-      email: 'Email'
-    )
-    User.create!(
+    create_list(
+      :user,
+      2,
       name: 'Name',
       email: 'Email'
     )

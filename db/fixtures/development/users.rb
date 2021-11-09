@@ -6,7 +6,8 @@ User.seed(
     {
       id: id,
       name: Faker::Name.name,
-      email: Faker::Internet.email
+      email: Faker::Internet.email,
+      prefecture_id: Faker::Number.within(range: 1..47)
     }
   end
 )
