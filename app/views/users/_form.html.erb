@@ -12,6 +12,11 @@
   </div>
 
   <div class="field mb-3">
+    <%= form.label :role, class: 'form-label' %>
+    <%= form.select :role, User.roles.keys, {}, { class: 'form-select' } %>
+  </div>
+
+  <div class="field mb-3">
     <%= form.label :prefecture, class: 'form-label' %>
     <%= form.collection_select :prefecture_id, Prefecture.all, :id, :name, { include_blank: true }, { class: 'form-select' } %>
   </div>
