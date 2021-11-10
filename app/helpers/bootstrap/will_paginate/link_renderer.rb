@@ -21,10 +21,11 @@
 #
 # https://github.com/mislav/will_paginate/blob/master/lib/will_paginate/view_helpers/link_renderer.rb
 #
-module WillPaginate
-  module Bootstrap
-    class LinkRenderer < WillPaginate::ActionView::LinkRenderer
+module Bootstrap
+  module WillPaginate
+    class LinkRenderer < ::WillPaginate::ActionView::LinkRenderer
       def container_attributes
+        binding.pry
         super
       end
 

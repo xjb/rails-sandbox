@@ -1,6 +1,6 @@
 <h1><%= t('.title' ) %></h1>
 
-<%= will_paginate @users, renderer: WillPaginate::Bootstrap::LinkRenderer %>
+<%= will_paginate @users %>
 
 <table class="table table-striped table-hover">
   <thead>
@@ -32,7 +32,7 @@
   </tbody>
 </table>
 
-<%= will_paginate @users, renderer: WillPaginate::Bootstrap::LinkRenderer %>
+<%= will_paginate @users %>
 
 <% provide :actions_west do %>
   <%= link_to t('.new'), new_user_path, class: 'btn btn-outline-dark' %>
