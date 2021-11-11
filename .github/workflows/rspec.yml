@@ -42,3 +42,10 @@ jobs:
 
     - name: Run tests
       run: bundle exec rspec
+
+    - name: Upload coverage
+      uses: actions/upload-artifact@master
+      with:
+        name: coverage
+        path: coverage
+        retention-days: 3
