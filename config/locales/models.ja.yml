@@ -22,3 +22,12 @@ ja:
         # role: 権限
         prefecture: *prefecture
         # created_at: 登録日時
+
+  enum:
+    user:
+      role:
+        # administrator: システム管理者
+        # manager: 管理者
+        # supporter: サポート
+        # customer: 顧客
+        # guest: ゲスト

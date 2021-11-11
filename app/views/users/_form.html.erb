@@ -13,7 +13,7 @@
 
   <div class="field mb-3">
     <%= form.label :role, class: 'form-label' %>
-    <%= form.select :role, User.roles.keys, {}, { class: 'form-select' } %>
+    <%= form.enum_select :role, {}, { class: 'form-select' } %>
   </div>
 
   <div class="field mb-3">
