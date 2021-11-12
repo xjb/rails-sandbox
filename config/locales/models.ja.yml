@@ -1,0 +1,33 @@
+ja:
+  attributes:
+    # id: ID
+    # created_at: 作成日時
+    # updated_at: 更新日時
+
+  activerecord:
+    models:
+      prefecture: &prefecture 都道府県
+      user:
+        # zero: User
+        # one: User
+        # other: Users
+
+    attributes:
+      prefecture:
+        # name: Prefecture Name
+
+      user:
+        # name: 名前
+        # email: メール
+        # role: 権限
+        prefecture: *prefecture
+        # created_at: 登録日時
+
+  enum:
+    user:
+      role:
+        # administrator: システム管理者
+        # manager: 管理者
+        # supporter: サポート
+        # customer: 顧客
+        # guest: ゲスト

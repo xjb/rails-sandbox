@@ -220,3 +220,55 @@ docker-compose run --rm --entrypoint="" ap bin/rails db:migrate:reset
 docker-compose run --rm --entrypoint="" ap bin/rails db:seed
 ```
 
+
+## Setup Bootstrap
+
+```bash
+docker-compose run --rm --entrypoint="" ap yarn add bootstrap bootstrap-icons @popperjs/core
+```
+
+app/javascript/packs/application.js
+```js
+import "stylesheets"
+import "bootstrap"
+import "bootstrap-icons/font/bootstrap-icons.css"
+```
+
+app/javascript/stylesheets/index.scss
+```scss
+@import "~bootstrap/scss/bootstrap";
+```
+
+app/views/layouts/application.html.erb
+```diff
+-     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+```
+
+
+## Setup Bootstrap Provide
+
+config/webpack/environment.js
+```diff
+const { environment } = require('@rails/webpacker')
+
++ const webpack = require('webpack')
++ environment.plugins.prepend(
++   'Provide',
++   new webpack.ProvidePlugin({
++     bootstrap: 'bootstrap'
++   })
++ )
++
+module.exports = environment
+```
+
+app/javascript/packs/application.js
+```diff
++ import "src"
+```
+
+app/javascript/src/index.js
+```diff
++ import "./xxxxx.js"
+```
+

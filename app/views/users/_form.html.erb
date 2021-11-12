@@ -1,27 +1,29 @@
 <%= form_with(model: user) do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, 'error') %> prohibited this user from being saved:</h2>
+  <%= render partial: 'shared/form/error_explanation', locals: { form: form } %>
 
-      <ul>
-        <% user.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
+  <div class="field mb-3">
+    <%= form.label :name, class: 'form-label' %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="field mb-3">
+    <%= form.label :email, class: 'form-label' %>
+    <%= form.text_field :email, class: 'form-control' %>
+  </div>
+
+  <div class="field mb-3">
+    <%= form.label :role, class: 'form-label' %>
+    <%= form.enum_select :role, {}, { class: 'form-select' } %>
+  </div>
+
+  <div class="field mb-3">
+    <%= form.label :prefecture, class: 'form-label' %>
+    <%= form.collection_select  :prefecture_id, Prefecture.all, :id, :name,
+                                { include_blank: true }, { class: 'form-select' } %>
+  </div>
+
+  <% provide :actions_east do %>
+    <%= form.submit class: 'btn btn-dark' %>
   <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= render partial: 'shared/actions' %>
 <% end %>

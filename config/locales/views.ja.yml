@@ -1,0 +1,44 @@
+ja:
+  view: &view
+    new: New!!
+    show: Show!!
+    edit: Edit!!
+    destroy: Destroy!!
+    back: Back!!
+    confirm: &confirm Are you sure?
+
+  controller: &controller
+    create:
+      notice: User was successfully created.
+    update:
+      notice: User was successfully updated.
+    destroy:
+      notice: User was successfully destroyed.
+    index:
+      <<: *view
+    new:
+      <<: *view
+    show:
+      <<: *view
+    edit:
+      <<: *view
+
+  # shared:
+  #   actions:
+  #     <<: *view
+
+  users:
+    <<: *controller
+    index:
+      <<: *view
+      title: Users!!
+      new: New User
+    new:
+      <<: *view
+      title: New User!!
+    show:
+      <<: *view
+      title: User %{id}!!
+    edit:
+      <<: *view
+      title: Editing User %{id}!!

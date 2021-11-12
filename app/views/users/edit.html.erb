@@ -1,6 +1,8 @@
-<h1>Editing User</h1>
+<h1><%= t('.title', id: @user.id) %></h1>
+
+<% provide :actions_west do %>
+  <%= link_to t('.show'), @user, class: 'btn btn-outline-dark' %>
+  <%= link_to t('.back'), users_path, class: 'btn btn-outline-dark' %>
+<% end %>
 
 <%= render 'form', user: @user %>
-
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
