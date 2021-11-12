@@ -1,6 +1,6 @@
 module Bootstrap
   # https://api.rubyonrails.org/v6.1.0/classes/ActionView/Helpers/FormBuilder.html
-  class FormBuilder < ApplicationFormBuilder
+  class FormBuilder < ApplicationFormBuilder # rubocop:disable Metrics/ClassLength
     # https://github.com/rails/rails/blob/main/actionview/lib/action_view/helpers/form_helper.rb
 
     def text_field(method, options = {})
@@ -101,7 +101,7 @@ module Bootstrap
       super
     end
 
-    def check_box(method, options = {}, checked_value = "1", unchecked_value = "0")
+    def check_box(method, options = {}, checked_value = '1', unchecked_value = '0')
       (options ||= {})[:class] ||= 'form-check-input'
       super
     end
@@ -121,13 +121,19 @@ module Bootstrap
     end
 
     def submit(value = nil, options = {})
-      value, options = nil, value if value.is_a?(Hash)
+      if value.is_a?(Hash)
+        options = value
+        value = nil
+      end
       (options ||= {})[:class] ||= 'btn btn-dark'
       super
     end
 
     def button(value = nil, options = {}, &block)
-      value, options = nil, value if value.is_a?(Hash)
+      if value.is_a?(Hash)
+        options = value
+        value = nil
+      end
       (options ||= {})[:class] ||= 'btn btn-dark'
       super
     end
@@ -139,12 +145,14 @@ module Bootstrap
       super
     end
 
-    def collection_select(method, collection, value_method, text_method, options = {}, html_options = {})
+    def collection_select(method, collection, value_method, text_method, options = {}, html_options = {}) # rubocop:disable Metrics/ParameterLists
       (html_options ||= {})[:class] ||= 'form-select'
       super
     end
 
-    def grouped_collection_select(method, collection, group_method, group_label_method, option_key_method, option_value_method, options = {}, html_options = {})
+    def grouped_collection_select(method, # rubocop:disable Metrics/ParameterLists
+                                  collection, group_method, group_label_method, option_key_method,
+                                  option_value_method, options = {}, html_options = {})
       (html_options ||= {})[:class] ||= 'form-select'
       super
     end
@@ -155,13 +163,13 @@ module Bootstrap
     end
 
     # NOTE: BootstrapのForm gridは単一のlabel,inputのペアを<div class="form-check">でくくる必要があるため合わない
-    def collection_check_boxes(method, collection, value_method, text_method, options = {}, html_options = {}, &block)
+    def collection_check_boxes(method, collection, value_method, text_method, options = {}, html_options = {}, &block) # rubocop:disable Metrics/ParameterLists
       (html_options ||= {})[:class] ||= 'form-check-input'
       super
     end
 
     # NOTE: BootstrapのForm gridは単一のlabel,inputのペアを<div class="form-check">でくくる必要があるため合わない
-    def collection_radio_buttons(method, collection, value_method, text_method, options = {}, html_options = {}, &block)
+    def collection_radio_buttons(method, collection, value_method, text_method, options = {}, html_options = {}, &block) # rubocop:disable Metrics/ParameterLists
       (html_options ||= {})[:class] ||= 'form-check-input'
       super
     end

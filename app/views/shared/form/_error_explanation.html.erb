@@ -3,7 +3,7 @@
 <% if form.object.errors.any? %>
   <div id="error_explanation" class="alert alert-danger" role="alert">
     <h4 class="alert-heading">
-      <%= pluralize(form.object.errors.count, "error") %> prohibited this <%= form.object.class.model_name.human %> from being saved:
+      <%= pluralize(form.object.errors.count, 'error') %> prohibited this <%= form.object.class.model_name.human %> from being saved:
     </h4>
     <hr>
     <ul>

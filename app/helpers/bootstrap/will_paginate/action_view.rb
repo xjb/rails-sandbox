@@ -4,7 +4,10 @@ module Bootstrap
       # NOTE: WillPaginate::ViewHelpers.pagination_options[:renderer] を設定しても使用されない
       #       ここで options[:renderer] のデフォルトを Bootstrap::WillPaginate::LinkRenderer に変更
       def will_paginate(collection = nil, options = {})
-        options, collection = collection, nil if collection.is_a? Hash
+        if collection.is_a? Hash
+          options = collection
+          collection = nil
+        end
         collection ||= infer_collection_from_controller
 
         options = options.symbolize_keys

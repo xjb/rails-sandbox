@@ -1,4 +1,4 @@
-# NOTE:
+# NOTE: see
 # https://getbootstrap.jp/docs/5.0/components/pagination/
 #
 # ```html
@@ -24,8 +24,7 @@
 module Bootstrap
   module WillPaginate
     class LinkRenderer < ::WillPaginate::ActionView::LinkRenderer
-      def container_attributes
-        binding.pry
+      def container_attributes # rubocop:disable Lint/UselessMethodDefinition
         super
       end
 
@@ -33,34 +32,44 @@ module Bootstrap
 
       def page_number(page)
         if page == current_page
-          tag(:li, link(page, '#', class: 'page-link'), class: 'page-item active', :'aria-current' => 'page')
+          tag(:li,
+              link(page, '#', class: 'page-link'),
+              class: 'page-item active', 'aria-current': 'page')
         else
-          tag(:li, link(page, page, class: 'page-link'), class: 'page-item')
+          tag(:li,
+              link(page, page, class: 'page-link'),
+              class: 'page-item')
         end
       end
 
-      def gap
+      def gap # rubocop:disable Lint/UselessMethodDefinition
         super
       end
 
-      def previous_page
+      def previous_page # rubocop:disable Lint/UselessMethodDefinition
         super
       end
 
-      def next_page
+      def next_page # rubocop:disable Lint/UselessMethodDefinition
         super
       end
 
       def previous_or_next_page(page, text, _classname)
         if page
-          tag(:li, link(text, page, class: 'page-link'), class: 'page-item')
+          tag(:li,
+              link(text, page, class: 'page-link'),
+              class: 'page-item')
         else
-          tag(:li, link(text, page, class: 'page-link', tabindex: -1, :'aria-disabled' => true), class: 'page-item disabled')
+          tag(:li,
+              link(text, page, class: 'page-link', tabindex: -1, 'aria-disabled': true),
+              class: 'page-item disabled')
         end
       end
 
       def html_container(html)
-        tag(:nav, tag(:div, html, class: 'pagination justify-content-end'), :'aria-label' => 'Page navigation')
+        tag(:nav,
+            tag(:div, html, class: 'pagination justify-content-end'),
+            'aria-label': 'Page navigation')
       end
     end
   end

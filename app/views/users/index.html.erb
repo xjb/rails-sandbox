@@ -1,4 +1,4 @@
-<h1><%= t('.title' ) %></h1>
+<h1><%= t('.title') %></h1>
 
 <%= page_entries_info @users, html: true %>
 <%= will_paginate @users %>
@@ -25,7 +25,10 @@
           <div class="btn-group" role="group">
             <%= link_to t('.show'), user, class: 'btn btn-outline-dark btn-sm' %>
             <%= link_to t('.edit'), edit_user_path(user), class: 'btn btn-outline-dark btn-sm' %>
-            <%= link_to t('.destroy'), user, method: :delete, data: { confirm: t('.confirm') }, class: 'btn btn-outline-dark btn-sm' %>
+            <%= link_to t('.destroy'), user,
+                        method: :delete,
+                        data: { confirm: t('.confirm') },
+                        class: 'btn btn-outline-dark btn-sm' %>
           </div>
         </td>
       </tr>

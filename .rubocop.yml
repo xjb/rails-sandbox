@@ -42,6 +42,12 @@ Layout/FirstArrayElementIndentation:
 Layout/IndentationWidth:
   Width: 2
 
+# Cop supports --auto-correct.
+# Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
+# URISchemes: http, https
+# Layout/LineLength:
+#   Max: 140
+
 # Configuration parameters: CountComments, CountAsOne, ExcludedMethods, IgnoredMethods.
 # IgnoredMethods: refine
 Metrics/BlockLength:
