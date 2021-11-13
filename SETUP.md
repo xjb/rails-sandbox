@@ -272,3 +272,56 @@ app/javascript/src/index.js
 + import "./xxxxx.js"
 ```
 
+
+## Setup webpack-dev-server
+
+### add service
+
+docker-compose.yml
+```yml
+  webpack:
+    image: ghcr.io/xjb/rails:main
+    entrypoint: ""
+    command: ./bin/webpack-dev-server
+    volumes:
+      - .:/workspace
+      - bundle:/usr/local/bundle
+      - node_modules:/workspace/node_modules
+```
+
+### webpacker compile off
+
+config/webpacker.yml
+```diff
+development:
+  <<: *default
+-   compile: true
++   compile: false
+```
+
+### proxy to dev_server
+
+config/webpacker.yml
+```diff
+  dev_server:
+    https: false
+-     host: localhost
++     host: webpack
+    port: 3035
+    public: localhost:3035
+```
+
+### for HMR/liveReload
+
+docker-compose.yml
+```diff
+  webpack:
+    ...
++     ports:
++       - "3035:3035"
+```
+
+### note
+
+webpack.config.js == config/webpack/[Rails.env].js
+
