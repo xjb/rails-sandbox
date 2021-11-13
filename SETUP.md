@@ -313,6 +313,8 @@ config/webpacker.yml
 
 ### for HMR/liveReload
 
+request to http://${dev_server.public}/sockjs-node/info?t=9999999999999
+
 docker-compose.yml
 ```diff
   webpack:
