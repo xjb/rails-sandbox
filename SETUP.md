@@ -242,6 +242,18 @@ app/javascript/stylesheets/index.scss
 app/views/layouts/application.html.erb
 ```diff
 -     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
++     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+```
+
+config/webpacker.yml
+```diff
+  # Extract and emit a css file
+  extract_css: false
+...
+production:
+...
+  # Extract and emit a css file
+  extract_css: true
 ```
 
 
@@ -322,6 +334,22 @@ docker-compose.yml
 +     ports:
 +       - "3035:3035"
 ```
+
+## Production
+
+env
+```
+RAILS_ENV=production
+RAILS_MASTER_KEY: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+RAILS_SERVE_STATIC_FILES: 1
+```
+
+```bash
+bin/rails db:migrate:reset DISABLE_DATABASE_ENVIRONMENT_CHECK=1
+bin/rails db:seed
+bin/rails webpacker:clobber webpacker:compile
+```
+
 
 ### note
 
