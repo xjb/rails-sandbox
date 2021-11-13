@@ -96,3 +96,15 @@ Style/RedundantFetchBlock:
 # Configuration parameters: EnforcedStyle, MinSize.
 # SupportedStyles: percent, brackets
 # Style/SymbolArray:
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyleForMultiline.
+# SupportedStylesForMultiline: comma, consistent_comma, no_comma
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyleForMultiline.
+# SupportedStylesForMultiline: comma, consistent_comma, no_comma
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
