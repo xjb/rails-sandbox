@@ -323,6 +323,22 @@ docker-compose.yml
 +       - "3035:3035"
 ```
 
+## Production
+
+env
+```
+RAILS_ENV=production
+RAILS_MASTER_KEY: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+RAILS_SERVE_STATIC_FILES: 1
+```
+
+```bash
+bin/rails db:migrate:reset DISABLE_DATABASE_ENVIRONMENT_CHECK=1
+bin/rails db:seed
+bin/rails webpacker:clobber webpacker:compile
+```
+
+
 ### note
 
 webpack.config.js == config/webpack/[Rails.env].js

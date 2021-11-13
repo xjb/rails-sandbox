@@ -1,3 +1,5 @@
+require 'will_paginate/view_helpers/action_view'
+
 # NOTE: see
 # https://getbootstrap.jp/docs/5.0/components/pagination/
 #

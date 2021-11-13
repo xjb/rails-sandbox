@@ -33,6 +33,9 @@ jobs:
       - name: Run ERB linters
         run: |
           bundle exec erblint --lint-all
+      - name: Run zeitwerk:check
+        run: |
+          bundle exec rails zeitwerk:check
 
   db-seed:
     runs-on: ubuntu-latest
