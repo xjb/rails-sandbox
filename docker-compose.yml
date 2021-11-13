@@ -11,6 +11,17 @@ services:
     tty: true
     stdin_open: true
 
+  webpack:
+    image: ghcr.io/xjb/rails:main
+    entrypoint: ""
+    command: ./bin/webpack-dev-server
+    ports:
+      - "3035:3035"
+    volumes:
+      - .:/workspace
+      - bundle:/usr/local/bundle
+      - node_modules:/workspace/node_modules
+
 volumes:
   bundle:
   node_modules:
