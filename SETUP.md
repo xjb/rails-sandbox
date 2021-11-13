@@ -242,6 +242,18 @@ app/javascript/stylesheets/index.scss
 app/views/layouts/application.html.erb
 ```diff
 -     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
++     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+```
+
+config/webpacker.yml
+```diff
+  # Extract and emit a css file
+  extract_css: false
+...
+production:
+...
+  # Extract and emit a css file
+  extract_css: true
 ```
 
 
