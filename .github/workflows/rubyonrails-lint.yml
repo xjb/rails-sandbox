@@ -37,6 +37,24 @@ jobs:
         run: |
           bundle exec rails zeitwerk:check
 
+  run-node-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          cache: 'yarn'
+      - name: Set up Yarn
+        run: yarn install
+
+      - name: Run linters
+        run: |
+          yarn lint
+
   db-seed:
     runs-on: ubuntu-latest
     strategy:

@@ -1,6 +1,16 @@
 {
   "name": "workspace",
+  "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "fix:eslint": "eslint --fix",
+    "fix:prettier": "prettier --write",
+    "lint:eslint": "eslint --format codeframe",
+    "lint:eslint:all": "eslint .",
+    "lint:prettier": "prettier --check",
+    "lint:prettier:all": "prettier --check 'app/javascript/**/*.*'",
+    "lint": "run-p lint:*:all --continue-on-error"
+  },
   "dependencies": {
     "@popperjs/core": "^2.10.2",
     "@rails/actioncable": "^6.0.0",
@@ -13,8 +23,12 @@
     "webpack": "^4.46.0",
     "webpack-cli": "^3.3.12"
   },
-  "version": "0.1.0",
   "devDependencies": {
+    "eslint": "^8.2.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-formatter-codeframe": "^7.32.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.4.1",
     "webpack-dev-server": "^3"
   }
 }
