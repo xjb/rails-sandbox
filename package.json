@@ -8,7 +8,7 @@
     "lint:eslint": "eslint --format codeframe",
     "lint:eslint:all": "eslint .",
     "lint:prettier": "prettier --check",
-    "lint:prettier:all": "prettier --check .",
+    "lint:prettier:all": "prettier --check 'app/javascript/**/*.*'",
     "lint": "run-p lint:*:all --continue-on-error"
   },
   "dependencies": {
