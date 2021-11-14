@@ -112,6 +112,42 @@ spec/rails_helper.rb
 ```
 
 
+## Setup Brakeman
+
+Gemfile
+```diff
+group :development, :test do
+...
++   gem 'brakeman', require: false
+end
+```
+
+
+## Setup bundler-audit
+
+Gemfile
+```diff
+group :development, :test do
+...
++   gem 'bundler-audit', require: false
+end
+```
+
+
+## linters & formatters
+
+| type                      | linter                         | formatter        |
+| ------------------------- | ------------------------------ | ---------------- |
+| .rb                       | rubocop                        | rubocop          |
+| .html.erb                 | erb-lint, better_html, rubocop |                  |
+| .js                       | eslint, prettier               | eslint, prettier |
+| .json                     | prettier                       | prettier         |
+| .yml, .yaml               | prettier                       | prettier         |
+| .css, .sass, .scss, .less | prettier                       | prettier         |
+| .html                     | prettier                       | prettier         |
+| .md, .markdown            | prettier                       | prettier         |
+
+
 ## Setup Rubocop
 
 Gemfile
@@ -167,26 +203,37 @@ docker-compose run --rm ap erblint --lint-all --autocorrect
 ```
 
 
-## Setup Brakeman
+## Setup eslint prettier
 
-Gemfile
-```diff
-group :development, :test do
-...
-+   gem 'brakeman', require: false
-end
+```bash
+docker-compose run --rm --entrypoint="" ap yarn add --dev eslint prettier eslint-config-prettier npm-run-all eslint-formatter-codeframe
+docker-compose run --rm --entrypoint="" ap yarn eslint --init
+docker-compose run --rm --entrypoint="" ap echo {}> .prettierrc.json
 ```
 
-
-## Setup bundler-audit
-
-Gemfile
+.eslintrc.json
 ```diff
-group :development, :test do
-...
-+   gem 'bundler-audit', require: false
-end
+-     "extends": "eslint:recommended",
++     "extends": [
++         "eslint:recommended",
++         "prettier"
++     ],
 ```
+
+```bash
+docker-compose run --rm --entrypoint="" ap yarn eslint --ext .js,.vue .
+```
+
+```bash
+docker-compose run --rm --entrypoint="" ap yarn prettier --check .
+```
+
+```bash
+docker-compose run --rm --entrypoint="" ap yarn eslint-config-prettier app/javascript/packs/application.js
+```
+
+- https://eslint.org/docs/rules/
+- https://prettier.io/docs/en/options.html
 
 
 ## Generate Scaffold

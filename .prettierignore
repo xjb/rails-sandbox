@@ -1,0 +1,12 @@
+# Ignore artifacts:
+/coverage
+/public/packs*
+
+# # Ignore dot files:
+# /.*
+/.github
+
+# Ignore file types:
+# *.html
+# *.md
+# *.markdown
