@@ -1,36 +1,37 @@
 import Rails from "@rails/ujs"
+import { Modal } from "bootstrap"
 
 export default class {
   static start() {
-    (new this).#setup()
+    new this().#setup()
   }
 
   #setup() {
     Rails.confirm = this.#confirm.bind(this)
   }
 
-  #id = 'confimModal'
+  #id = "confimModal"
 
   #confirm(message, srcEl) {
     let modalEl = document.getElementById(this.#id)
 
     if (!modalEl) {
-      document.body.insertAdjacentHTML('beforeend', this.#modalHTML)
+      document.body.insertAdjacentHTML("beforeend", this.#modalHTML)
       modalEl = document.getElementById(this.#id)
 
-      modalEl.querySelector('.btn-primary').addEventListener('click', () => {
+      modalEl.querySelector(".btn-primary").addEventListener("click", () => {
         delete srcEl.dataset.confirm
         srcEl.click()
       })
 
-      modalEl.addEventListener('shown.bs.modal', () => {
-        modalEl.querySelector('.btn-secondary').focus()
+      modalEl.addEventListener("shown.bs.modal", () => {
+        modalEl.querySelector(".btn-secondary").focus()
       })
     }
 
-    modalEl.querySelector('.modal-body').textContent = message
+    modalEl.querySelector(".modal-body").textContent = message
 
-    let modal = new bootstrap.Modal(modalEl, { backdrop: 'static' })
+    let modal = new Modal(modalEl, { backdrop: "static" })
     modal.show()
 
     return false
