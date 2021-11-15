@@ -1,0 +1,97 @@
+#!/bin/bash
+
+set -e
+
+# このシェルスクリプトのパス
+SH_PATH=$(realpath $0)
+# ワークスペースルートの絶対パス
+WORKSPACE_ROOT=$(realpath $(dirname ${SH_PATH})/../..)
+
+# .envを読み込む
+if [ -f $(dirname ${SH_PATH})/.env ]; then
+  source $(dirname ${SH_PATH})/.env
+fi
+
+# 作業ディレクトリをワークスペースルートに移動
+cd ${WORKSPACE_ROOT}
+
+# netcatコマンド
+# 動作環境によってオプションに差異があるらしい
+NETCAT_CMD=${NETCAT_CMD:-"nc -N"}
+
+# rubocop-daemonキャッシュディレクトリのパス
+# token, port, statusなどを参照するために必要
+# ワークスペースルートからの相対パスもしくは絶対パスで指定
+CACHE_DIR=${CACHE_DIR:-$(realpath ${WORKSPACE_ROOT}/tmp/rubocop-daemon)}
+
+# デバッグモード
+# ワークスペースルートにデバッグログを出力する
+# DEBUG=1
+if [ "${DEBUG}" = 1 ] || [ -n "${DEBUGLOG}" ]; then
+  DEBUGLOG=${DEBUGLOG:-${WORKSPACE_ROOT}/rubocop.debug.log}
+fi
+
+# デバッグログ出力
+if [ -n "${DEBUGLOG}" ]; then
+  cat << EOF >> ${DEBUGLOG}
+$(date +'%F %T')
+     NETCAT_CMD: $NETCAT_CMD
+        SH_PATH: $SH_PATH
+ WORKSPACE_ROOT: $WORKSPACE_ROOT
+      CACHE_DIR: $CACHE_DIR
+            CWD: $CWD
+            pwd: $(pwd)
+EOF
+fi
+
+# 標準入力の読み取り
+# -s もしくは --stdin が指定されている場合に読み取る
+# ※vscode(ruby-rubocop)は --stdin でコードをチェックさせる
+# If -s or --stdin args are present, read stdin with `cat`
+for ARG in $@; do
+  if [ -z "$STDIN_CONTENT" ] && [ "$ARG" == "--stdin" ] || [ "$ARG" == "-s" ]; then
+    # Preserve final new lines when ingesting from STDIN
+    STDIN_CONTENT="$(cat; printf x)"
+    STDIN_CONTENT=${STDIN_CONTENT%x}
+  fi
+done
+
+# コンテナ内の作業ディレクトリのパス
+# 絶対パスで指定
+WORKDIR=${WORKDIR:-/workspace}
+# コンテナ内の作業ディレクトリにマウントしているローカルディレクトリのパス
+# ワークスペースルートからの相対パスもしくは絶対パスで指定
+LOCALDIR=${LOCALDIR:-${WORKSPACE_ROOT}}
+# rubocop-daemonコマンドの構築
+# .rubocop.yml に設定したパスとマッチするよう、絶対パスのファイルパスはプロジェクトルートからの相対パスに置換
+# COMMAND="$(cat ${CACHE_DIR}/token) ${WORKDIR} exec $@"
+COMMAND="$(cat ${CACHE_DIR}/token) ${WORKDIR} exec"
+for ARG in $@; do
+  if [[ "$ARG" =~ ^/ ]] && [ -f "$ARG" ]; then
+    COMMAND="${COMMAND} $(realpath --relative-to=${LOCALDIR} ${ARG})"
+  else
+    COMMAND="${COMMAND} ${ARG}"
+  fi
+done
+
+# デバッグログ出力
+if [ -n "${DEBUGLOG}" ]; then
+  cat << EOF >> ${DEBUGLOG}
+           ARGS: $@
+        WORKDIR: $WORKDIR
+       LOCALDIR: $LOCALDIR
+        COMMAND: $COMMAND
+           PORT: $(cat ${CACHE_DIR}/port)
+  STDIN_CONTENT:
+\`\`\`
+$STDIN_CONTENT
+\`\`\`
+EOF
+fi
+
+# rubocop実行
+# netcatでコンテナのrubocop-daemonにコマンドを送信
+# rm -f ${CACHE_DIR}/status
+printf '%s\n%s' "${COMMAND}" "${STDIN_CONTENT}" | ${NETCAT_CMD} 127.0.0.1 $(cat ${CACHE_DIR}/port)
+
+exit $(cat ${CACHE_DIR}/status)

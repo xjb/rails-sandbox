@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/cumet04/rubocop-daemon
+  revision: ffc07e40060a179e6cde5732451ddfd9f44bf545
+  branch: binding_option
+  specs:
+    rubocop-daemon (0.3.2)
+      rubocop
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -333,6 +341,7 @@ DEPENDENCIES
   rails-i18n (~> 6.0.0)
   ransack
   rspec-rails
+  rubocop-daemon!
   rubocop-performance
   rubocop-rails
   rubocop-rake
