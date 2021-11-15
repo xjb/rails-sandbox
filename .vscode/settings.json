@@ -1,0 +1,4 @@
+{
+    "ruby.rubocop.executePath": ".vscode/bin/",
+    "ruby.rubocop.onSave": true
+}

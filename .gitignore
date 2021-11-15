@@ -41,3 +41,7 @@ yarn-debug.log*
 
 # SimpleCov
 /coverage
+
+# rubocop-daemon
+/.rubocop-daemon
+rubocop.debug.log

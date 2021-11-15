@@ -22,6 +22,21 @@ services:
       - bundle:/usr/local/bundle
       - node_modules:/workspace/node_modules
 
+  rubocop-daemon:
+    image: ghcr.io/xjb/rails:main
+    entrypoint: ""
+    command: sudo -E bundle exec rubocop-daemon start --no-daemon --binding 0.0.0.0 --port 3001
+    ports:
+      - "3001:3001"
+    volumes:
+      - .:/workspace
+      - ./.rubocop-daemon:/home/app/.cache/rubocop-daemon/workspace
+      - bundle:/usr/local/bundle
+    logging:
+      driver: none
+      # options:
+      #   max-size: 1k
+
 volumes:
   bundle:
   node_modules:
