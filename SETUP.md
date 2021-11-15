@@ -236,6 +236,21 @@ docker-compose run --rm --entrypoint="" ap yarn eslint-config-prettier app/javas
 - https://prettier.io/docs/en/options.html
 
 
+## Setup Bullet
+
+Gemfile
+```diff
+group :development, :test do
+...
++   gem 'bullet'
+end
+```
+
+```bash
+docker-compose run --rm ap bin/rails g bullet:install
+```
+
+
 ## Generate Scaffold
 
 ```bash
