@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :default do
+  gem 'active_decorator'
   gem 'rails-i18n', '~> 6.0.0'
   gem 'seed-fu'
   gem 'will_paginate'
