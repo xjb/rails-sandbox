@@ -6,7 +6,7 @@ RSpec.describe 'users/index', type: :view do
       :user,
       2,
       name: 'Name',
-      email: 'Email'
+      email: 'Email',
     )
     assign(:users, User.paginate(page: params[:page]))
   end

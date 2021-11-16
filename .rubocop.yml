@@ -17,9 +17,21 @@ require:
   - rubocop-rspec
 
 AllCops:
+  Exclude:
+    - '.*/**/*'
+    - 'bin/**/*'
+    - 'coverage/**/*'
+    - 'db/schema.rb'
+    - 'log/**/*'
+    - 'node_modules/**/*'
+    - 'storage/**/*'
+    - 'tmp/**/*'
+    - 'vendor/**/*'
   NewCops: enable
+  DisplayStyleGuide: true
   # StyleGuideBaseURL: https://rubystyle.guide
-  # TargetRubyVersion: 3.0
+  ExtraDetails: true
+  TargetRubyVersion: 3.0
 
 Bundler/OrderedGems:
   Exclude:
@@ -74,7 +86,7 @@ Style/Documentation:
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: always, always_true, never
 Style/FrozenStringLiteralComment:
-  Enabled: false
+  EnforcedStyle: never
 
 # Cop supports --auto-correct.
 # Style/GlobalStdStream:
@@ -96,3 +108,16 @@ Style/RedundantFetchBlock:
 # Configuration parameters: EnforcedStyle, MinSize.
 # SupportedStyles: percent, brackets
 # Style/SymbolArray:
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyleForMultiline.
+# SupportedStylesForMultiline: comma, consistent_comma, no_comma
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyleForMultiline.
+# SupportedStylesForMultiline: comma, consistent_comma, no_comma
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
+
