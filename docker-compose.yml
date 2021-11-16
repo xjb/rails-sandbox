@@ -22,6 +22,9 @@ services:
     <<: *default
     ports:
       - "3000:3000"
+    # environment:
+    #   SELENIUM_HUB_URL: http://hub:4444/wd/hub
+    #   # SELENIUM_HEADLESS: "false"
 
   webpack:
     <<: *default
@@ -42,6 +45,14 @@ services:
       - bundle:/usr/local/bundle
     logging:
       driver: none
+
+  hub:
+    image: selenium/standalone-chrome:4.0.0
+    ports:
+      - "7900:7900"
+    environment:
+      VNC_NO_PASSWORD: 1
+    profiles: []
 
 volumes:
   bundle:
