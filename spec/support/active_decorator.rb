@@ -7,11 +7,9 @@ module RSpecHelpers
 
   module ViewAssigns
     include Decorator
-
-    # @see RSpec::Rails::ViewAssigns#assign
-    def assign(key, value)
-      super(key, decorate(value))
-    end
+    # @see RSpec::Rails::ViewAssigns#view_assigns
+    # @see ActiveDecorator::Monkey::AbstractController::Rendering#view_assigns
+    include ActiveDecorator::Monkey::AbstractController::Rendering
   end
 end
 
