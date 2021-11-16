@@ -30,7 +30,6 @@ RSpec.describe 'Users', type: :system do
       expect(page).to have_current_path user_path(User.last)
     end
 
-
     it 'show -> edit' do
       visit user_path(user)
 
