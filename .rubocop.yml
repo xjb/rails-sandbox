@@ -74,7 +74,7 @@ Style/Documentation:
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: always, always_true, never
 Style/FrozenStringLiteralComment:
-  Enabled: false
+  EnforcedStyle: never
 
 # Cop supports --auto-correct.
 # Style/GlobalStdStream:
@@ -108,3 +108,4 @@ Style/TrailingCommaInArguments:
 # SupportedStylesForMultiline: comma, consistent_comma, no_comma
 Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: comma
+
