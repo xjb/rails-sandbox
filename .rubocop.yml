@@ -73,6 +73,12 @@ RSpec/MultipleExpectations:
   Enabled: false
   # Max: 2
 
+# Configuration parameters: CountAsOne.
+RSpec/ExampleLength:
+  # Max: 5
+  Exclude:
+    - 'spec/system/**/*'
+
 # Cop supports --auto-correct.
 Style/BlockComments:
   Exclude:
