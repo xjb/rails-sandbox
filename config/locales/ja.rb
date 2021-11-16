@@ -10,8 +10,8 @@
           when 1 then :one
           else :other
           end
-        end
-      }
-    }
-  }
+        end,
+      },
+    },
+  },
 }

@@ -4,7 +4,7 @@ RSpec.describe 'users/new', type: :view do
   before do
     assign(:user, User.new(
       name: 'MyString',
-      email: 'MyString'
+      email: 'MyString',
     ))
   end
 
