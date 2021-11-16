@@ -1,41 +1,47 @@
 version: "3.9"
-services:
-  ap:
+
+x-service:
+  default: &default
     image: ghcr.io/xjb/rails:main
-    ports:
-      - "3000:3000"
     volumes:
       - .:/workspace
       - bundle:/usr/local/bundle
       - node_modules:/workspace/node_modules
+    tmpfs:
+      - /workspace/tmp/pids:uid=1000,gid=1000
+      - /workspace/log:uid=1000,gid=1000
     tty: true
     stdin_open: true
+    restart: unless-stopped
+    logging:
+      options:
+        max-size: 1k
+
+services:
+  ap:
+    <<: *default
+    ports:
+      - "3000:3000"
 
   webpack:
-    image: ghcr.io/xjb/rails:main
+    <<: *default
     entrypoint: ""
     command: ./bin/webpack-dev-server
     ports:
       - "3035:3035"
-    volumes:
-      - .:/workspace
-      - bundle:/usr/local/bundle
-      - node_modules:/workspace/node_modules
 
-  rubocop-daemon:
-    image: ghcr.io/xjb/rails:main
+  rubocop:
+    <<: *default
     entrypoint: ""
     command: sudo -E bundle exec rubocop-daemon start --no-daemon --binding 0.0.0.0 --port 3001
     ports:
       - "3001:3001"
     volumes:
-      - .:/workspace
       - ./.rubocop-daemon:/home/app/.cache/rubocop-daemon/workspace
+      - .:/workspace
       - bundle:/usr/local/bundle
     logging:
       driver: none
-      # options:
-      #   max-size: 1k
 
 volumes:
   bundle:
