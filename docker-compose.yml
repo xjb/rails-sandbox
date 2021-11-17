@@ -61,7 +61,7 @@ services:
       - "7900:7900"
     environment:
       VNC_NO_PASSWORD: 1
-    profiles: []
+    profiles: [test]
 
 volumes:
   bundle:
