@@ -1,5 +1,6 @@
 {
     "recommendations": [
-        "misogi.ruby-rubocop"
+        "misogi.ruby-rubocop",
+        "rebornix.ruby"
     ]
 }
