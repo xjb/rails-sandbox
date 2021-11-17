@@ -71,9 +71,10 @@ group :development do
   gem 'spring'
   # for VS Code
   gem 'rubocop-daemon', git: 'https://github.com/cumet04/rubocop-daemon', branch: 'binding_option', require: false
-  # for VS Code debugger
-  gem 'ruby-debug-ide', require: false
-  gem 'debase', require: false
+  # NOTE: Installed by Dockerfile
+  # # for VS Code debugger
+  # gem 'ruby-debug-ide', require: false
+  # gem 'debase', require: false
 end
 
 group :test do

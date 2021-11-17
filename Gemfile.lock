@@ -105,9 +105,6 @@ GEM
     coderay (1.1.3)
     concurrent-ruby (1.1.9)
     crass (1.0.6)
-    debase (0.2.4.1)
-      debase-ruby_core_source (>= 0.10.2)
-    debase-ruby_core_source (0.10.12)
     debug_inspector (1.1.0)
     diff-lcs (1.4.4)
     docile (1.4.0)
@@ -256,8 +253,6 @@ GEM
       rubocop (~> 1.0)
     rubocop-rspec (2.6.0)
       rubocop (~> 1.19)
-    ruby-debug-ide (0.7.3)
-      rake (>= 0.8.1)
     ruby-progressbar (1.11.0)
     rubyzip (2.3.2)
     sass-rails (6.0.0)
@@ -335,7 +330,6 @@ DEPENDENCIES
   bundler-audit
   byebug
   capybara (>= 3.26)
-  debase
   erb_lint
   factory_bot_rails
   faker
@@ -355,7 +349,6 @@ DEPENDENCIES
   rubocop-rails
   rubocop-rake
   rubocop-rspec
-  ruby-debug-ide
   sass-rails (>= 6)
   seed-fu
   selenium-webdriver
