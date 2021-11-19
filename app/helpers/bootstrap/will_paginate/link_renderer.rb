@@ -26,9 +26,9 @@ require 'will_paginate/view_helpers/action_view'
 module Bootstrap
   module WillPaginate
     class LinkRenderer < ::WillPaginate::ActionView::LinkRenderer
-      def container_attributes # rubocop:disable Lint/UselessMethodDefinition
-        super
-      end
+      # def container_attributes
+      #   super
+      # end
 
       protected
 
@@ -44,17 +44,17 @@ module Bootstrap
         end
       end
 
-      def gap # rubocop:disable Lint/UselessMethodDefinition
-        super
-      end
+      # def gap
+      #   super
+      # end
 
-      def previous_page # rubocop:disable Lint/UselessMethodDefinition
-        super
-      end
+      # def previous_page
+      #   super
+      # end
 
-      def next_page # rubocop:disable Lint/UselessMethodDefinition
-        super
-      end
+      # def next_page
+      #   super
+      # end
 
       def previous_or_next_page(page, text, _classname)
         if page

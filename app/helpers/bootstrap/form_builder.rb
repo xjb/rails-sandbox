@@ -88,13 +88,13 @@ module Bootstrap
       super
     end
 
-    def fields_for(record_name, record_object = nil, fields_options = {}, &block)
-      super
-    end
+    # def fields_for(record_name, record_object = nil, fields_options = {}, &block)
+    #   super
+    # end
 
-    def fields(scope = nil, model: nil, **options, &block)
-      super
-    end
+    # def fields(scope = nil, model: nil, **options, &block)
+    #   super
+    # end
 
     def label(method, text = nil, options = {}, &block)
       (options ||= {})[:class] ||= 'form-label'
@@ -111,9 +111,9 @@ module Bootstrap
       super
     end
 
-    def hidden_field(method, options = {})
-      super
-    end
+    # def hidden_field(method, options = {})
+    #   super
+    # end
 
     def file_field(method, options = {})
       (options ||= {})[:class] ||= 'form-control'
@@ -177,22 +177,22 @@ module Bootstrap
     # https://github.com/rails/rails/blob/main/actionview/lib/action_view/helpers/date_helper.rb
     # NOTE: BootstrapのForm gridは単一の要素を<div class="col">でくくる必要があるため合わない
 
-    def date_select(method, options = {}, html_options = {})
-      super
-    end
+    # def date_select(method, options = {}, html_options = {})
+    #   super
+    # end
 
-    def time_select(method, options = {}, html_options = {})
-      super
-    end
+    # def time_select(method, options = {}, html_options = {})
+    #   super
+    # end
 
-    def datetime_select(method, options = {}, html_options = {})
-      super
-    end
+    # def datetime_select(method, options = {}, html_options = {})
+    #   super
+    # end
 
     # https://github.com/rails/rails/blob/main/actiontext/app/helpers/action_text/tag_helper.rb
 
-    def rich_text_area(method, options = {})
-      super
-    end
+    # def rich_text_area(method, options = {})
+    #   super
+    # end
   end
 end
