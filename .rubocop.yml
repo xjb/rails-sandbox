@@ -64,14 +64,19 @@ Layout/IndentationWidth:
 # IgnoredMethods: refine
 Metrics/BlockLength:
   Max: 120
+  Exclude:
+    - 'spec/**/*'
 
 # Configuration parameters: AssignmentOnly.
 # RSpec/InstanceVariable:
 #   AssignmentOnly: false
 
 RSpec/MultipleExpectations:
-  Enabled: false
-  # Max: 2
+  Max: 5
+
+# Configuration parameters: AllowSubject.
+RSpec/MultipleMemoizedHelpers:
+  Max: 10
 
 # Configuration parameters: CountAsOne.
 RSpec/ExampleLength:
