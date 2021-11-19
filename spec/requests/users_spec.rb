@@ -13,14 +13,23 @@ require 'rails_helper'
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
 RSpec.describe '/users', type: :request do
+  let(:prefecture) { create :prefecture }
+
   # User. As you add validations to User, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) do
-    skip('Add a hash of attributes valid for your model')
+    # skip('Add a hash of attributes valid for your model')
+    {
+      name: Faker::Name.name,
+      email: Faker::Internet.email,
+      role: User.roles.keys.sample,
+      prefecture_id: prefecture.id,
+    }
   end
 
   let(:invalid_attributes) do
-    skip('Add a hash of attributes invalid for your model')
+    # skip('Add a hash of attributes invalid for your model')
+    { name: nil, email: nil, role: nil, prefecture_id: nil }
   end
 
   describe 'GET /index' do
@@ -77,7 +86,9 @@ RSpec.describe '/users', type: :request do
 
       it "renders a successful response (i.e. to display the 'new' template)" do
         post users_url, params: { user: invalid_attributes }
-        expect(response).to be_successful
+        # expect(response).to be_successful
+        expect(response).to have_http_status(:unprocessable_entity)
+        # expect(response).to render_template(:new)
       end
     end
   end
@@ -85,14 +96,16 @@ RSpec.describe '/users', type: :request do
   describe 'PATCH /update' do
     context 'with valid parameters' do
       let(:new_attributes) do
-        skip('Add a hash of attributes valid for your model')
+        # skip('Add a hash of attributes valid for your model')
+        { name: 'NAME' }
       end
 
       it 'updates the requested user' do
         user = User.create! valid_attributes
         patch user_url(user), params: { user: new_attributes }
         user.reload
-        skip('Add assertions for updated state')
+        # skip('Add assertions for updated state')
+        expect(user.name).to eq 'NAME'
       end
 
       it 'redirects to the user' do
@@ -107,7 +120,8 @@ RSpec.describe '/users', type: :request do
       it "renders a successful response (i.e. to display the 'edit' template)" do
         user = User.create! valid_attributes
         patch user_url(user), params: { user: invalid_attributes }
-        expect(response).to be_successful
+        # expect(response).to be_successful
+        expect(response).to have_http_status(:unprocessable_entity)
       end
     end
   end
