@@ -4,60 +4,61 @@ module Bootstrap
     # https://github.com/rails/rails/blob/main/actionview/lib/action_view/helpers/url_helper.rb
     module UrlHelper
       def link_to(name = nil, options = nil, html_options = nil, &block)
-        if block
-          html_options = options
-          options = name
-          name = block
+        (block ? options ||= {} : html_options ||= {}).tap do |h|
+          h.stringify_keys!
+          h['class'] ||= 'btn btn-dark'
         end
-        html_options = (html_options || {}).stringify_keys
 
-        html_options['class'] ||= 'btn btn-dark'
         super
       end
 
       def button_to(name = nil, options = nil, html_options = nil, &block)
-        if block
-          html_options = options
-          options = name
+        (block ? options ||= {} : html_options ||= {}).tap do |h|
+          h.stringify_keys!
+          h['class'] ||= 'btn btn-dark'
         end
-        html_options = (html_options || {}).stringify_keys
-
-        html_options['class'] ||= 'btn btn-dark'
-        super
-      end
-
-      def link_to_unless_current(name, options = {}, html_options = {}, &block)
-        super
-      end
-
-      def link_to_unless(condition, name, options = {}, html_options = {}, &block)
-        super
-      end
-
-      def link_to_if(condition, name, options = {}, html_options = {}, &block)
-        super
-      end
-
-      def mail_to(email_address, name = nil, html_options = {}, &block)
-        # html_options, name = name, nil if name.is_a?(Hash)
+        # if block
+        #   html_options = options
+        #   options = name
+        # end
         # html_options = (html_options || {}).stringify_keys
 
+        # html_options['class'] ||= 'btn btn-dark'
         super
       end
 
-      def sms_to(phone_number, name = nil, html_options = {}, &block)
-        # html_options, name = name, nil if name.is_a?(Hash)
-        # html_options = (html_options || {}).stringify_keys
+      # def link_to_unless_current(name, options = {}, html_options = {}, &block)
+      #   super
+      # end
 
-        super
-      end
+      # def link_to_unless(condition, name, options = {}, html_options = {}, &block)
+      #   super
+      # end
 
-      def phone_to(phone_number, name = nil, html_options = {}, &block)
-        # html_options, name = name, nil if name.is_a?(Hash)
-        # html_options = (html_options || {}).stringify_keys
+      # def link_to_if(condition, name, options = {}, html_options = {}, &block)
+      #   super
+      # end
 
-        super
-      end
+      # def mail_to(email_address, name = nil, html_options = {}, &block)
+      #   # html_options, name = name, nil if name.is_a?(Hash)
+      #   # html_options = (html_options || {}).stringify_keys
+
+      #   super
+      # end
+
+      # def sms_to(phone_number, name = nil, html_options = {}, &block)
+      #   # html_options, name = name, nil if name.is_a?(Hash)
+      #   # html_options = (html_options || {}).stringify_keys
+
+      #   super
+      # end
+
+      # def phone_to(phone_number, name = nil, html_options = {}, &block)
+      #   # html_options, name = name, nil if name.is_a?(Hash)
+      #   # html_options = (html_options || {}).stringify_keys
+
+      #   super
+      # end
     end
 
     include UrlHelper

@@ -43,6 +43,9 @@ yarn-debug.log*
 /.env
 /*compose.override.y*ml
 
+# RSpec
+/spec/examples.txt
+
 # SimpleCov
 /coverage
 
