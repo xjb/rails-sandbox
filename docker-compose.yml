@@ -63,6 +63,11 @@ services:
       VNC_NO_PASSWORD: 1
     profiles: [test]
 
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - "8025:8025"
+
 volumes:
   bundle:
   node_modules:
