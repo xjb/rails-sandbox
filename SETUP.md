@@ -382,6 +382,23 @@ docker-compose.yml
 +       - "3035:3035"
 ```
 
+
+# Action Mailer
+
+```bash
+docker-compose run --rm --entrypoint="" ap bin/rails g mailer user_mailer
+```
+
+```
+Rails.application.config.action_mailer.delivery_method = :smtp
+Rails.application.config.action_mailer.smtp_settings = { address: 'mailhog', port: 1025 }
+```
+
+```bash
+docker-compose run --rm --entrypoint="" ap bin/rails r "UserMailer.sign_up.deliver_now"
+```
+
+
 ## Production
 
 env

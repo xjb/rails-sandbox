@@ -12,12 +12,10 @@ SimpleCov.start 'rails' do
 
   add_filter 'app/channels'
   # add_filter 'app/jobs'
-  # add_filter 'app/mailers'
 
   add_group 'Decorators', 'app/decorators'
   add_group 'Services', 'app/services'
   groups.delete('Channels')
-  groups.delete('Mailers')
   groups.delete('Jobs')
   groups.delete('Libraries')
 end
