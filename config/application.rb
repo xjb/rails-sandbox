@@ -20,3 +20,5 @@ module Workspace
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end
+
+require Rails.root.join('config/initializers/active_job.rb')
