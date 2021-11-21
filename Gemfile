@@ -35,6 +35,7 @@ group :default do
   gem 'will_paginate'
   gem 'will-paginate-i18n'
   gem 'ransack'
+  gem 'sidekiq'
 end
 
 group :development, :test do
