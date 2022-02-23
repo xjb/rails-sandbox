@@ -27,6 +27,7 @@ AllCops:
     - 'storage/**/*'
     - 'tmp/**/*'
     - 'vendor/**/*'
+    - 'spec/xample/**/*'
   NewCops: enable
   DisplayStyleGuide: true
   # StyleGuideBaseURL: https://rubystyle.guide
