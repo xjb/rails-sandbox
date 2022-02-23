@@ -24,7 +24,8 @@ services:
     build: .
     ports:
       - "3000:3000"
-    # environment:
+    environment:
+      RAILS_MASTER_KEY:
     #   SELENIUM_HUB_URL: http://hub:4444/wd/hub
     #   # SELENIUM_HEADLESS: "false"
 
@@ -35,6 +36,8 @@ services:
     ports:
       - "3000:3000"
       - "1234:1234"
+    environment:
+      RAILS_MASTER_KEY:
     profiles: [debug]
 
   webpack:

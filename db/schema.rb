@@ -10,12 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_08_233938) do
-
+ActiveRecord::Schema[7.0].define(version: 2021_11_08_233938) do
   create_table "prefectures", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -23,8 +22,8 @@ ActiveRecord::Schema.define(version: 2021_11_08_233938) do
     t.string "email"
     t.integer "role", default: 9, null: false
     t.integer "prefecture_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["prefecture_id"], name: "index_users_on_prefecture_id"
   end
 
