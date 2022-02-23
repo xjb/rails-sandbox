@@ -5,7 +5,7 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg -O
 
 
 # FROM ruby:3.1.1 AS production
-FROM ruby:3.0.2 AS production
+FROM ruby:3.1.1 AS production
 
 COPY --from=downloader /downloads/* /tmp
 
