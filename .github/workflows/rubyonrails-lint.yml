@@ -74,5 +74,6 @@ jobs:
         env:
           RAILS_ENV: ${{ matrix.rails-env }}
           RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
+          SECRET_KEY_BASE: ${{ secrets.SECRET_KEY_BASE }}
         run: |
           bundle exec rails db:migrate:reset db:seed
