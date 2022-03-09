@@ -26,6 +26,7 @@ services:
       - "3000:3000"
     environment:
       RAILS_MASTER_KEY:
+      SECRET_KEY_BASE:
     #   SELENIUM_HUB_URL: http://hub:4444/wd/hub
     #   # SELENIUM_HEADLESS: "false"
 
@@ -38,6 +39,7 @@ services:
       - "1234:1234"
     environment:
       RAILS_MASTER_KEY:
+      SECRET_KEY_BASE:
     profiles: [debug]
 
   webpack:
