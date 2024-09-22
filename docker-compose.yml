@@ -63,7 +63,7 @@ services:
       driver: none
 
   hub:
-    image: selenium/standalone-chrome:4.1.2
+    image: selenium/standalone-chrome:4.25.0
     ports:
       - "7900:7900"
     environment:
