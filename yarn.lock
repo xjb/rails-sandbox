@@ -998,9 +998,9 @@
   integrity sha512-G26maXW1Kx0LxQdmNNuNjQlRO/QlXNr3QfuwKiOKb5FZQGYe2OwtHTGXBAjSoiu4dW36XYMT/+L1Wo1Yov4ZXA==
 
 "@rails/activestorage@^7.0.0":
-  version "7.0.2"
-  resolved "https://registry.yarnpkg.com/@rails/activestorage/-/activestorage-7.0.2.tgz#81986034e1a38d931c40213073973b5a4c5b86e0"
-  integrity sha512-E/W80bMnlhmLz63GvY4fn82s9nDk8ZnzWBO++G3uQhwKAT/xdHgdL8VNfTOK14VKCQwHxJuBCXYnFXY68FOfFw==
+  version "7.2.102"
+  resolved "https://registry.yarnpkg.com/@rails/activestorage/-/activestorage-7.2.102.tgz#6c44033e4698ea92466a764515d3b156d58c6530"
+  integrity sha512-indJKK6bhETIfyYqUtbE3neUQCZ7Qm3lcPXSHqlVBYsJ3DnUKKejqvaIHHA5MrmqTKNbnnrX4zyeA1mrJgLk9Q==
   dependencies:
     spark-md5 "^3.0.1"
 
