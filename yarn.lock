@@ -988,19 +988,19 @@
     rimraf "^3.0.2"
 
 "@popperjs/core@^2.10.2":
-  version "2.11.2"
-  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.2.tgz#830beaec4b4091a9e9398ac50f865ddea52186b9"
-  integrity sha512-92FRmppjjqz29VMJ2dn+xdyXZBrMlE42AV6Kq6BwjWV7CNUW1hs2FtxSNLQE+gJhaZ6AAmYuO9y8dshhcBl7vA==
+  version "2.11.8"
+  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.8.tgz#6b79032e760a0899cd4204710beede972a3a185f"
+  integrity sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==
 
 "@rails/actioncable@^7.0.0":
-  version "7.0.2"
-  resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-7.0.2.tgz#69a6d999f4087e0537dd38fe0963db1f4305d650"
-  integrity sha512-G26maXW1Kx0LxQdmNNuNjQlRO/QlXNr3QfuwKiOKb5FZQGYe2OwtHTGXBAjSoiu4dW36XYMT/+L1Wo1Yov4ZXA==
+  version "7.2.400"
+  resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-7.2.400.tgz#90a795664cf5a7efcd93d791dc90951bef13bd7d"
+  integrity sha512-rxVBAeaekdA0G8HOl+rQZVKU5XVMM7Wnat+0PLz+qDy1HCe+YCjvrAYaqU9gP5XtXbhz0SLGm/iub3EwCcP5pw==
 
 "@rails/activestorage@^7.0.0":
-  version "7.0.2"
-  resolved "https://registry.yarnpkg.com/@rails/activestorage/-/activestorage-7.0.2.tgz#81986034e1a38d931c40213073973b5a4c5b86e0"
-  integrity sha512-E/W80bMnlhmLz63GvY4fn82s9nDk8ZnzWBO++G3uQhwKAT/xdHgdL8VNfTOK14VKCQwHxJuBCXYnFXY68FOfFw==
+  version "7.2.400"
+  resolved "https://registry.yarnpkg.com/@rails/activestorage/-/activestorage-7.2.400.tgz#be57885970c481ea8ca44fe5ba253631b7a1b605"
+  integrity sha512-8HbYJKgCUko+l9m87s4P+iUp5RDtfr59YtpPYqbvy5xpDW30YZ2aVD4DBpaVBoXhuV924TjOMK8MLKxKH6OlcQ==
   dependencies:
     spark-md5 "^3.0.1"
 
